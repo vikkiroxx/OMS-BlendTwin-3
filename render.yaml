@@ -1,0 +1,21 @@
+# Render Blueprint – OMS BlendTwin 3.0
+# Deploy: Dashboard → New → Blueprint → Connect this repo
+# Set DB_* (and optional SSH) env vars in the service Environment tab.
+
+services:
+  - type: web
+    name: oms-blendtwin
+    runtime: python
+    rootDir: OMS-BlendTwin
+
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run.py
+
+    plan: free
+
+    # Optional: health check for zero-downtime deploys (adjust path if your app has one)
+    # healthCheckPath: /api/health
+
+    # Env vars: set in Render Dashboard (Environment) – do not commit secrets.
+    # Required: DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD
+    # Optional: DB_CHARSET, USE_SSH_TUNNEL, SSH_* (see .env.example in OMS-BlendTwin)

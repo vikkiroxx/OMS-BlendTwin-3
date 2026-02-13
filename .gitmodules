@@ -1,0 +1,3 @@
+[submodule "OMS-BlendTwin"]
+	path = OMS-BlendTwin
+	url = https://github.com/vikkiroxx/OMS-BlendTwin.git
